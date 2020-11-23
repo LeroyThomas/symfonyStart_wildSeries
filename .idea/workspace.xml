@@ -20,10 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fed27f8-a53d-4900-8d01-2c890979d5bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/program/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/wild-series.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wild-series.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +144,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kQJvvb0g4DqCddNdx5hdt9EqMj" />
@@ -170,7 +175,7 @@
       <updated>1605627115291</updated>
       <workItem from="1605627116375" duration="853000" />
       <workItem from="1605685315311" duration="29000" />
-      <workItem from="1606119559674" duration="2207000" />
+      <workItem from="1606119559674" duration="3476000" />
     </task>
     <servers />
   </component>
@@ -190,6 +195,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2579" y="215" width="582" height="664" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606121631072">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2579" y="215" width="582" height="664" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/72.27.1848.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1606121631072" />
     <state x="2663" y="298" width="424" height="491" key="FileChooserDialogImpl" timestamp="1605685342356">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
