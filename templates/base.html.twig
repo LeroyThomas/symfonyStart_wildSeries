@@ -2,11 +2,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="/build/app.css">
+        <link rel="icon" href="/build/logo.png" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
+        <header>
+            {% include '/program/_navbar.html.twig' %}
+        </header>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <script src="/build/app.js"></script>
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </body>
 </html>
