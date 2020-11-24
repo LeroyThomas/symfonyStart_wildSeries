@@ -1,10 +1,10 @@
-@import "~bootstrap/scss/bootstrap";
-body {
-    background-color: lightgray;
-}
+//body {
+//    background-color: lightgray;
+//}
 
 $theme-colors: (
     "primary": #264653,
     "secondary": #2a9d8f,
-    "success": #e9c46a
+    "third": #e9c46a
 );
+@import "~bootstrap/scss/bootstrap";

@@ -5,8 +5,8 @@
         <link rel="stylesheet" href="/build/app.css">
         <link rel="icon" href="/build/logo.png" />
         <title>{% block title %}Welcome!{% endblock %}</title>
+        {{ encore_entry_link_tags('app') }}
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
     <body>
@@ -15,8 +15,8 @@
         </header>
         {% block body %}{% endblock %}
         <script src="/build/app.js"></script>
+        {{ encore_entry_script_tags('app') }}
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </body>
 </html>
