@@ -35,24 +35,24 @@ class ProgramRepository extends ServiceEntityRepository
         ;
     }
     */
-    /**
-     * @param $category
-     * @return Program[] Returns an array of Program objects
-     *
-     */
-    public function findByCategory($category)
-    {
-        return $this->createQueryBuilder('p')
-            ->join('p.category', 'c')
-            ->addSelect('c')
-            ->andWhere('c.name = :category')
-            ->setParameter('category', $category)
-            ->orderBy('p.id', 'DESC')
-            ->setMaxResults(3)
-            ->getQuery()
-            ->getResult()
-            ;
-    }
+//    /**
+//     * @param $category
+//     * @return Program[] Returns an array of Program objects
+//     *
+//     */
+//    public function findByCategory($category)
+//    {
+//        return $this->createQueryBuilder('p')
+//            ->join('p.category', 'c')
+//            ->addSelect('c')
+//            ->andWhere('c.name = :category')
+//            ->setParameter('category', $category)
+//            ->orderBy('p.id', 'DESC')
+//            ->setMaxResults(3)
+//            ->getQuery()
+//            ->getResult()
+//            ;
+//    }
 
     /*
     public function findOneBySomeField($value): ?Program
