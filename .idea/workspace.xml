@@ -22,9 +22,6 @@
     <list default="true" id="9fed27f8-a53d-4900-8d01-2c890979d5bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/category/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/category/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/program/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/program/_navbar.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +180,7 @@
       <workItem from="1606462247796" duration="637000" />
       <workItem from="1606462973255" duration="9000" />
       <workItem from="1606722010253" duration="21000" />
-      <workItem from="1606722061613" duration="12303000" />
+      <workItem from="1606722061613" duration="15277000" />
     </task>
     <servers />
   </component>
