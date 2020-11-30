@@ -18,7 +18,7 @@ class CategoryController extends AbstractController
 {
     /**
      *
-     * @Route("/", name="_index")
+     * @Route("/", name="index")
      * @return Response A response instance
      */
     public function index(): Response

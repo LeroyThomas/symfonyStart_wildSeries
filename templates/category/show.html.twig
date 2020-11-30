@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ category.name }}{% endblock %}
+{% block title %} {{ category|capitalize}} {% endblock %}
 {% block body %}
-    <div class="media-body">
-        {% if  %}
-        <h1 class="mt-0">{{ program.id }} / {{ program.title}} </h1>
-        <p>{{ program.summary }}</p>
-    </div>
-
+    <h1>{{ category|capitalize }}</h1>
+    {% for program in programs %}
+        <div class="media-body">
+            <h2 class="mt-0">{{ program.id }} / <a href="{{ path("program_show", { id: program.id }) }}">{{ program.title}}</a> </h2>
+            <p>{{ program.summary }}</p>
+        </div>
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
     <a href="{{ path('category_index') }}">
         Retour à la liste des categories
     </a>
