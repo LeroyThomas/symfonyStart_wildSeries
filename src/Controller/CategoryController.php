@@ -43,9 +43,6 @@ class CategoryController extends AbstractController
 
     public function show(string $categoryName): Response
     {
-        $category = $this->getDoctrine()
-            ->getRepository(Category::class)
-            -> findOneBy( ['name' => $categoryName]);
 
         if (!$categoryName) {
             throw $this->createNotFoundException(
@@ -55,7 +52,7 @@ class CategoryController extends AbstractController
         $programs= $this->getDoctrine()
             ->getRepository(Program::class)
             ->findBy(
-                ['category' => $category->getId()],
+                [],
                 ['id' => 'DESC'],
                 3
             );
