@@ -7,12 +7,17 @@
     <img class="align-self-start mr-3 film-poster" src="{{program.poster}}" alt="{{ program.title }} poster">
         <div class="media-body">
             <h2 class="mt-0">{{ season.description }} de {{ program.title }}</h2>
-            <ul>Liste des épisodes:
+            <br>
+                <p>Liste des épisodes:</p>
+            <hr>
+            <ul>
+                <br>
                 {% for episode in episodes %}
                     <li>
-                        {{ episode.number }}: {{ episode.title }}
-                        <br>
-                        {{ episode.synopsis }}
+                        {{ episode.number }}: <a href="{{ path('program_episode_show', {program: program.id, season:season.id, episode:episode.id}) }}">
+                            {{ episode.title }}</a>
+{#                        <br>#}
+{#                        {{ episode.synopsis }}#}
                     </li>
                     <br>
                 {% endfor %}
