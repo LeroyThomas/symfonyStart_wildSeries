@@ -3,7 +3,7 @@
 {% block title %}All actors{% endblock %}
 
 {% block body %}
-    <h1>Touts les acteurs</h1>
+    <h1>Tous les acteurs</h1>
     {% for actor in actors %}
         <div>
             <h2>{{ loop.index }} / <a href="{{ path("actor_show", { id: actor.id }) }}">{{ actor.name }}</a></h2>
