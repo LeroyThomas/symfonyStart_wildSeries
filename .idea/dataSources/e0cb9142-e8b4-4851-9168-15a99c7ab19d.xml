@@ -1054,12 +1054,10 @@ SELECT|sys.sys_config:null
     <column id="320" parent="302" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="321" parent="302" name="summary">
       <Position>3</Position>
       <DataType>longtext|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="322" parent="302" name="poster">
       <Position>4</Position>
