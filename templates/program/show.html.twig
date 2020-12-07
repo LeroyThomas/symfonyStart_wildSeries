@@ -15,6 +15,15 @@
             <hr>
         {% endfor %}
         <a href="{{ path('season_new') }}"> Ajouter une nouvelle saison </a>
+        <hr>
+        <strong>Acteurs :</strong>
+        <ul>
+            {% for actor in program.actors %}
+                <a href="{{ path("actor_show", {id: actor.id}) }}"><li>{{ actor.name }} </li></a>
+            {% else %}
+                <li>Aucun acteur pour cette série</li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
 
