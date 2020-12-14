@@ -53,8 +53,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{episode}", name="episode_show", methods={"GET"})
-     * @ParamConverter("episode", class="App\Entity\Episode", options={"mapping": {"episode": "slug"}})
+     * @Route("/{id}", name="episode_show", methods={"GET"})
      */
     public function show(Episode $episode): Response
     {
@@ -64,17 +63,14 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{episode}/edit", name="episode_edit", methods={"GET","POST"})
-     * @ParamConverter("episode", class="App\Entity\Episode", options={"mapping": {"episode": "slug"}})
+     * @Route("/{id}/edit", name="episode_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Episode $episode, Slugify $slugify): Response
+    public function edit(Request $request, Episode $episode): Response
     {
         $form = $this->createForm(EpisodeType::class, $episode);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $slug = $slugify->generate($episode->getTitle());
-            $episode->setSlug($slug);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('episode_index');
@@ -87,8 +83,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{episode}", name="episode_delete", methods={"DELETE"})
-     * @ParamConverter("episode", class="App\Entity\Episode", options={"mapping": {"episode": "slug"}})
+     * @Route("/{id}", name="episode_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Episode $episode): Response
     {

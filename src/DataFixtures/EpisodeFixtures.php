@@ -22,20 +22,20 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
     {
         return [SeasonFixtures::class];
     }
+
     public function load(ObjectManager $manager)
     {
-        $faker = Faker\Factory::create('fr_FR');
+        $faker  =  Faker\Factory::create('fr_FR');
         for ($i=1; $i<200 ; $i++) {
             $episode = new Episode();
+            $episode->setnumber($i%10 + 1);
+            $episode->setTitle($faker->sentence($nbWords = 3, $variableNbWords = true));
             $slug = $this->slugify->generate($episode->getTitle());
             $episode->setSlug($slug);
-            $episode
-                ->setNumber($i + 1)
-                ->setTitle($faker->sentence(5,true))
-                ->setSynopsis($faker->text)
-                ->setSeason($this->getReference('season_'. floor($i/10)));
+            $episode->setSynopsis($faker->text);
+            $episode->setSeason($this->getReference('season_'. floor($i/10)));
             $manager->persist($episode);
-            $this->addReference('episode_'. $i, $episode);
+            $this->addReference('episode_' . $i, $episode);
         }
         $manager->flush();
     }
