@@ -6,7 +6,7 @@
     <h1> Toutes les séries de la table program : </h1>
     {% for program in programs %}
         <div>
-            <h2>{{ loop.index }} / <a href="{{ path("program_show", { id: program.id}) }}">{{ program.title }}</a> - Catégorie : {{  program.category.name }}</h2>
+            <h2>{{ loop.index }} / <a href="{{ path("program_show", { program: program.slug}) }}">{{ program.title }}</a> - Catégorie : {{  program.category.name }}</h2>
             <p>{{ program.summary }}</p>
         </div>
     {% else %}

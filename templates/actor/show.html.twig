@@ -6,7 +6,7 @@
     <h4>A joué dans :</h4>
     {% for program in actor.programs %}
         <div class="media-body">
-            <a href="{{ path('program_show', {id: program.id}) }}"><h2 class="mt-0">/ {{ program.title}} </h2></a>
+            <a href="{{ path('program_show', {program: program.slug}) }}"><h2 class="mt-0">/ {{ program.title}} </h2></a>
             <p>{{ program.summary }}</p>
         </div>
     {% else %}

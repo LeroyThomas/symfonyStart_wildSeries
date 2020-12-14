@@ -5,7 +5,7 @@
     <h1>{{ category|capitalize }}</h1>
     {% for program in programs %}
         <div class="media-body">
-            <h2 class="mt-0">{{ program.id }} / <a href="{{ path("program_show", { id: program.id }) }}">{{ program.title}}</a> </h2>
+            <h2 class="mt-0">{{ program.id }} / <a href="{{ path("program_show", { program: program.slug}) }}">{{ program.title}}</a> </h2>
             <p>{{ program.summary }}</p>
         </div>
     {% else %}
