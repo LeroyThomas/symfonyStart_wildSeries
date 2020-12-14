@@ -1,6 +1,6 @@
-//body {
-//    background-color: lightgray;
-//}
+body {
+    background-color: lightgray;
+}
 
 $theme-colors: (
     "primary": #264653,
@@ -8,3 +8,7 @@ $theme-colors: (
     "third": #e9c46a
 );
 @import "~bootstrap/scss/bootstrap";
+
+.bodyContent{
+  padding: 10px;
+}
