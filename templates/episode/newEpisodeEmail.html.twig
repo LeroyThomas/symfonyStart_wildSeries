@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+    {% block title %}New episode{% endblock %}
+
+    {% block body %}
+        <h1>New episode {{ episode.number}} : {{ episode.title }} created </h1>
+        <p>Hello, the new episode {{ episode.title }} from the show {{ episode.season.program.title}} has been created on Wild Series</p>
+        <p>Summary : {{episode.synopsis }}</p>
+        <p><a href="http://127.0.0.1:8000/episode/{{ episode.slug }}">More information</a></p>
+    {% endblock %}
