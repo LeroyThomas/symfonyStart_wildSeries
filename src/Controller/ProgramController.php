@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Comment;
+use App\Form\CommentType;
 use App\Service\Slugify;
 use App\Form\ProgramType;
 use App\Entity\Program;
@@ -143,12 +145,38 @@ class ProgramController extends AbstractController
      * @param Season $season
      * @param Episode $episode
      */
-    public function showEpisode(Program $program, Season $season, Episode $episode)
+    public function showEpisode(Program $program, Season $season, Episode $episode, Request $request)
     {
+        // Create a new Category Object
+        $comment = new Comment();
+        // Create the associated Form
+        $form = $this->createForm(CommentType::class, $comment);
+        // Get data from HTTP request
+        $form->handleRequest($request);
+        // Was the form submitted ?
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Deal with the submitted data
+            $entityManager = $this->getDoctrine()->getManager();
+            $comment->setEpisode($episode);
+            $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+            $user = $this->getUser();
+            $comment->setAuthor($user);
+
+            // Persist Category Object
+            $entityManager->persist($comment);
+            // Flush the persisted object
+            $entityManager->flush();
+        }
+        $comments = $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->findBy(['episode' => $episode, 'id' => 'DESC'] );
+
         return $this->render('program/episode_show.html.twig', [
             'program' => $program,
             'season' => $season,
-            'episode' => $episode
+            'episode' => $episode,
+            'form' => $form->createView(),
         ]);
     }
 }
