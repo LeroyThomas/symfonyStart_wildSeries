@@ -12,3 +12,8 @@ $theme-colors: (
 .bodyContent{
   padding: 10px;
 }
+
+.comment{
+  display: flex;
+  flex-direction: column;
+}
