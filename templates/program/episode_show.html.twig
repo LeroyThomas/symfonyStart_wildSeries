@@ -16,6 +16,16 @@
                 <h3>commentaire :</h3> <p> {{ comment.comment }} </p>
                 <h3>note : {{ comment.rate }}</h3>
                 <h3>auteur : {{ comment.author.username }}</h3>
+                {% if app.user and (app.user.username == comment.author.username or is_granted("ROLE_ADMIN")) %}
+                    <a href="{{ path("comment_edit", { id: comment.id }) }}">
+                        <button class="btn">éditer</button>
+                    </a>
+                    <form method="post" action="{{ path('comment_delete', {'id': comment.id}) }}" onsubmit="return confirm('Sur ?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
+                        <button class="btn">Supprimer</button>
+                    </form>
+                {% endif %}
             </div>
         {% endfor %}
         <div class="media-body">

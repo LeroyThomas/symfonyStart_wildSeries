@@ -38,5 +38,6 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-         - { path: ^/programs/new, roles: ROLE_CONTRIBUTOR }
-         - { path: ^/programs/[a-z-]+/edit, roles: ROLE_CONTRIBUTOR }
+        - { path: ^/comments/[0-9]+/edit, roles: ROLE_USER }
+        - { path: ^/programs/new, roles: ROLE_CONTRIBUTOR }
+        - { path: ^/programs/[a-z-]+/edit, roles: ROLE_CONTRIBUTOR }
