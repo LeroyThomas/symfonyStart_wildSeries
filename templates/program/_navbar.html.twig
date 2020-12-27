@@ -27,6 +27,9 @@
         <div class="navPushRight">
             {% if app.user %}
                 {{ app.user.email }}
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active text-secondary" href="{{ path('app_profile') }}"> Mon profil</a>
+                </div>
                 <a href="{{ path('app_logout') }}"> Se déconnecter</a>
             {% else %}
                 <a href="{{ path('app_login') }}"> Se connecter</a>
