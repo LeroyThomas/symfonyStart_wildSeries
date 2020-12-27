@@ -136,7 +136,7 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{program}/seasons/{seasonId}/episodes/{episode}", methods={"GET"}, name="episode_show")
+     * @Route("/{program}/seasons/{seasonId}/episodes/{episode}", methods={"GET","POST"}, name="episode_show")
      * @ParamConverter("program", class="App\Entity\Program", options={"mapping": {"program": "slug"}})
      * @ParamConverter("season", class="App\Entity\Season", options={"mapping": {"seasonId": "id"}})
      * @ParamConverter("episode", class="App\Entity\Episode", options={"mapping": {"episode": "slug"}})
@@ -170,7 +170,7 @@ class ProgramController extends AbstractController
         }
         $comments = $this->getDoctrine()
             ->getRepository(Comment::class)
-            ->findBy(['episode' => $episode, 'id' => 'DESC'] );
+            ->findBy(['episode' => $episode]);
 
         return $this->render('program/episode_show.html.twig', [
             'program' => $program,

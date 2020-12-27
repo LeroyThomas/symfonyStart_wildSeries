@@ -10,14 +10,23 @@
                     <p>{{ episode.number }} : {{ episode.title }}</p>
                     <p>{{ episode.synopsis }}</p>
         </div>
-    <div class="media-body">
-    {% if app.user %}
-        <br>
-        <h5>Ajouter un commentaire :</h5>
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button class="btn btn-lg btn-primary">{{ button_label|default('Save') }}</button>
-        {{ form_end(form) }}
-    {% endif %}
+    <div class="comment">
+        {% for comment in episode.comments|reverse %}
+            <div class="card">
+                <h3>commentaire :</h3> <p> {{ comment.comment }} </p>
+                <h3>note : {{ comment.rate }}</h3>
+                <h3>auteur : {{ comment.author.username }}</h3>
+            </div>
+        {% endfor %}
+        <div class="media-body">
+            {% if app.user %}
+                <br>
+                <h5>Ajouter un commentaire :</h5>
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn btn-lg btn-primary">{{ button_label|default('Save') }}</button>
+                {{ form_end(form) }}
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

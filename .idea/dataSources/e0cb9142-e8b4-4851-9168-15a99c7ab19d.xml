@@ -1066,7 +1066,7 @@ program_id</ColNames>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="325" parent="305" name="user_id">
+    <column id="325" parent="305" name="author_id">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
@@ -1085,8 +1085,8 @@ program_id</ColNames>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="329" parent="305" name="IDX_9474526CA76ED395">
-      <ColNames>user_id</ColNames>
+    <index id="329" parent="305" name="IDX_9474526CF675F31B">
+      <ColNames>author_id</ColNames>
       <Type>btree</Type>
     </index>
     <index id="330" parent="305" name="IDX_9474526C362B62A0">
@@ -1098,8 +1098,8 @@ program_id</ColNames>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="332" parent="305" name="FK_9474526CA76ED395">
-      <ColNames>user_id</ColNames>
+    <foreign-key id="332" parent="305" name="FK_9474526CF675F31B">
+      <ColNames>author_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
