@@ -3,6 +3,8 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Form\CommentType;
+use App\Form\SearchProgramFormType;
+use App\Repository\ProgramRepository;
 use App\Service\Slugify;
 use App\Form\ProgramType;
 use App\Entity\Program;
@@ -31,16 +33,35 @@ class ProgramController extends AbstractController
      * @Route("/", name="index")
      * @return Response A response instance
      */
-    public function index(): Response
+    public function index(Request $request, ProgramRepository $programRepository): Response
     {
-        $programs = $this->getDoctrine()
-            ->getRepository(Program::class)
-            ->findAll();
+        $form = $this->createForm(SearchProgramFormType::class);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $searchTitle = trim($form->getData()['searchTitle']);
+            $searchActor = trim($form->getData()['searchActor']);
+            if ($searchTitle === '' && $searchActor === '') {
+                $programs = [];
+            }
+            elseif ($searchActor === '') {
+                $programs = $programRepository->findLikeName($searchTitle);
+            }
+            elseif ($searchTitle === '') {
+                $programs = $programRepository->findActor($searchActor);
+            }
+            else {
+                $programs = $programRepository->findLikeName($searchTitle, $searchActor);
+            }
+        } else {
+            $programs = $programRepository->findAll();
+        }
         return $this->render('program/index.html.twig', [
-            'programs' => $programs
+            'programs' => $programs,
+            'form' => $form->createView(),
         ]);
     }
+
     /**
      * @Route ("/new", name="new")
      * @param Slugify $slugify

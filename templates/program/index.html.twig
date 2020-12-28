@@ -3,11 +3,29 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    <h1> Toutes les séries de la table program : </h1>
+    <h1>Toutes les séries</h1>
+    {{ form_start(form,  {'attr': {'class': 'search-form'}}) }}
+    {{ form_row(form.searchTitle,  { 'label': 'Cherche un titre' }) }}
+    {{ form_row(form.searchActor,  { 'label': 'Cherche un acteur' }) }}
+    <br>
+    <button class="btn btn-primary">{{ button_label|default('rechercher') }}</button>
+    {{ form_end(form) }}
+    <br>
     {% for program in programs %}
         <div>
-            <h2>{{ loop.index }} / <a href="{{ path("program_show", { program: program.slug}) }}">{{ program.title }}</a> - Catégorie : {{  program.category.name }}</h2>
+            <h2>{{ loop.index }} /
+                <a href="{{ path("program_show", { program: program.slug}) }}">{{ program.title }}</a> - Catégorie : {{  program.category.name }}</h2>
             <p>{{ program.summary }}</p>
+        </div>
+        <div class="">
+            <strong>Acteurs :</strong>
+            <ul>
+                {% for actor in program.actors %}
+                    <li><a href="{{ path("actor_show", { id: actor.id }) }}"> {{ actor.name }}</a></li>
+                {% else %}
+                    <li>Aucun acteur pour cette série</li>
+                {% endfor %}
+            </ul>
         </div>
     {% else %}
         Aucune série trouvée.
