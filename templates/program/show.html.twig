@@ -11,7 +11,7 @@
         <p>Catégorie : {{ program.category.name }}</p>
         {%for season in seasons %}
             <a href="{{ path('program_season_show', {program: program.slug, season:season.id}) }}">Saison {{ season.number }}</a>
-            <a href="{{ path('season_delete', {'id': season.id}) }}">Delete</a>
+{#            <a href="{{ path('season_delete', {'id': season.id}) }}">Delete</a>#}
             <hr>
         {% endfor %}
         <a href="{{ path('season_new') }}"> Ajouter une nouvelle saison </a>
