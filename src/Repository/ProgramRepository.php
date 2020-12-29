@@ -42,7 +42,7 @@ class ProgramRepository extends ServiceEntityRepository
         $queryBuilder = $this->createQueryBuilder('p')
             ->leftJoin('p.actors', 'a')
             ->where('a.name LIKE :name')
-            ->setParameter('name', '%' . $actor)
+            ->setParameter('name', '%' . $actor . '%')
             ->orderBy('p.title', 'ASC')
             ->getQuery();
 
