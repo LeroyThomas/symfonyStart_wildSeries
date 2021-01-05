@@ -79,19 +79,17 @@ class CategoryController extends AbstractController
                 'no category named : ' . $categoryName . ' found in category\'s table.'
             );
         }
+        $categoryName = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findOneBy(['name' => $categoryName]);
+
         $programs= $this->getDoctrine()
             ->getRepository(Program::class)
             ->findBy(
-                [],
-                ['id' => 'DESC'],
-                3
+                ['category' => $categoryName],
+                ['id' => 'DESC']
             );
 
-        if (!$programs) {
-            throw $this->createNotFoundException(
-                'Aucune série trouvée'
-            );
-        }
         return $this->render('category/show.html.twig', [
             'category' => $categoryName,
             'programs' => $programs,

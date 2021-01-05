@@ -1,0 +1,7 @@
+{% if categories is defined %}
+    {% for category in categories %}
+        <li><a href="{{ path('category_show', {categoryName:category.name}) }}">{{ category.name }}</a></li>
+    {% endfor %}
+{% else %}
+    No category found.
+{% endif %}

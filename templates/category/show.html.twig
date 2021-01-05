@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ category|capitalize}} {% endblock %}
+{% block title %} {{ 'category'|trans }} {{ category.name}} {% endblock %}
 {% block body %}
-    <h1>{{ category|capitalize }}</h1>
+    <h1>{{ category.name|capitalize }}</h1>
     {% for program in programs %}
         <div class="media-body">
             <h2 class="mt-0">{{ program.id }} / <a href="{{ path("program_show", { program: program.slug}) }}">{{ program.title}}</a> </h2>
